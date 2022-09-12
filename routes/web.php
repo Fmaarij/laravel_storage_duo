@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MembresController::class,'index'])->name('membreindex');
 Route::get('/create', [MembresController::class,'create'])->name('createmembre');
 Route::post('/storemembre', [MembresController::class,'store']);
-
+Route::get('/showmembre/{id}', [MembresController::class,'show']);
+Route::get('/editmembre/{id}', [MembresController::class,'edit']);
+Route::put('/{id}/updatemembre', [MembresController::class,'update']);
+Route::delete('/{id}/delete', [MembresController::class,'destroy']);
 
 
 Route::get('/indexgenre', [GenresController::class,'index'])->name('indexgenre');
@@ -26,4 +29,5 @@ Route::get('/creategenre', [GenresController::class,'create'])->name('creategenr
 Route::post('/storegenre', [GenresController::class,'store']);
 Route::get('/show/{id}', [GenresController::class,'show']);
 Route::get('/edit/{id}', [GenresController::class,'edit']);
-Route::put('/{id}/update', [GenresController::class,'update']);
+Route::put('/{id}/updategenre', [GenresController::class,'update']);
+// Route::delete('/{id}/delete', [GenresController::class,'destroy']);

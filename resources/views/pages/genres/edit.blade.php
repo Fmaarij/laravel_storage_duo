@@ -2,7 +2,7 @@
 @section('content')
     <div class="container my-5">
 
-        <form action="/{{$genre->id}}/update" method="post" enctype="multipart/form-data">
+        <form action="/{{$genre->id}}/updategenre" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <label for="">Genre</label>

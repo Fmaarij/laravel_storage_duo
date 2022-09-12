@@ -21,7 +21,7 @@
             @endforeach
         </select>
 
-        <button type="submit">Ajouter</button>
+        <button class="btn btn-outline-primary" type="submit">Ajouter</button>
 
     </form>
 
