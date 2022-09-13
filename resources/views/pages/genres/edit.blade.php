@@ -8,7 +8,7 @@
             <label for="">Genre</label>
             <input type="text" name="genre" value="{{$genre->genre}}">
 
-            <button type="submit">Update</button>
+            <button class="btn btn-outline-primary" type="submit">Update</button>
         </form>
 
     </div>

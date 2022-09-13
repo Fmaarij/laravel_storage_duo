@@ -7,6 +7,7 @@
                 <th>ID</th>
                 <th>Genre</th>
                 <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +20,15 @@
                     <button class="btn btn-outline-warning">Edit</button>
                     </a>
                 </td>
+                <td>
+                    <form action="/{{$genre->id}}/delete" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
+
             {{-- @endforeach --}}
         </tbody>
 

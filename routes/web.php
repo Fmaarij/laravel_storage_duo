@@ -22,6 +22,8 @@ Route::get('/showmembre/{id}', [MembresController::class,'show']);
 Route::get('/editmembre/{id}', [MembresController::class,'edit']);
 Route::put('/{id}/updatemembre', [MembresController::class,'update']);
 Route::delete('/{id}/delete', [MembresController::class,'destroy']);
+Route::delete('/{id}/deleteall', [MembresController::class,'destroyall']);
+
 
 
 Route::get('/indexgenre', [GenresController::class,'index'])->name('indexgenre');
@@ -30,4 +32,4 @@ Route::post('/storegenre', [GenresController::class,'store']);
 Route::get('/show/{id}', [GenresController::class,'show']);
 Route::get('/edit/{id}', [GenresController::class,'edit']);
 Route::put('/{id}/updategenre', [GenresController::class,'update']);
-// Route::delete('/{id}/delete', [GenresController::class,'destroy']);
+Route::delete('/{id}/delete', [GenresController::class,'destroy']);

@@ -10,7 +10,8 @@
                         <th>Image</th>
                         <th>Genre</th>
                         <th>Show</th>
-                        <th>Delete</th>
+                        <th>Delete Image</th>
+                        <th>Delete All</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +33,14 @@
                             <form action="/{{$membres->id}}/delete" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-outline-danger">Delete</button>
+                                <button class="btn btn-outline-danger">Delete Image</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/{{$membres->id}}/deleteall" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-danger">Delete all</button>
                             </form>
                         </td>
                     </tr>

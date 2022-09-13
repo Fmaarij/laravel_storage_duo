@@ -7,7 +7,7 @@
         <label for="">Genre</label>
         <input type="text" name="genre">
 
-        <button type="submit">Ajouter</button>
+        <button class="btn btn-outline-success" type="submit">Ajouter</button>
     </form>
 </div>
 @endsection

@@ -1,34 +1,36 @@
 @extends('layouts.index')
 @section('content')
-<div class="container my-5">
+    <div class="container my-5">
 
-    <form action="/{{$membres->id}}/updatemembre" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <label for="">Nom</label>
-        <input type="text" name="nom" value="{{$membres->nom}}">
+        <form action="/{{ $membres->id }}/updatemembre" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <label for="">Nom</label>
+            <input type="text" name="nom" value="{{ $membres->nom }}">
 
-        <label for="">Age</label>
-        <input type="number" name="age" value="{{$membres->age}}">
+            <label for="">Age</label>
+            <input type="number" name="age" value="{{ $membres->age }}">
 
-        <label for="">Image</label>
-        <input type="file" name="img">
-        <img width="15%" class="rounded-pill" src="{{asset('storage/img/' .$membres->img)}}" alt="picture">
-
-        <label for="">Genre</label>
-
-        {{-- <select for="" name="genre">
-            @foreach ($genres as $genre )
-            <option value='{{$genre->genre}}'>{{$genre->genre}}</option>
-            @endforeach
-        </select> --}}
+            <label for="">Image</label>
+            <input type="file" name="img">
+            <img width="15%" class="rounded-pill" src="{{ asset('storage/img/' . $membres->img) }}" alt="picture">
 
             <label for="">Genre</label>
-            <input type="text" name="genre_id" value="{{$membres->genre_id}}" placeholder="1=Homme & 2=Femme">
 
-        <button class="btn btn-outline-primary" type="submit">Update</button>
+            <select for="" name="genre_id">
+                <option  value='{{ $membres->genre->id }}'>{{ $membres->genre->genre }}</option>
+                @foreach ($genres as $genre)
+                    @if ($genre->id != $membres->genre_id)
+                        {
 
-    </form>
+                        <option value='{{ $genre->id }}'>{{ $genre->genre }}</option>
+                        }
+                    @endif
+                @endforeach
+            </select>
+            <button class="btn btn-outline-primary" type="submit">Update</button>
 
-</div>
+        </form>
+
+    </div>
 @endsection

@@ -78,7 +78,7 @@ class MembresController extends Controller
     public function edit($id)
     {
         $membres = Membres::find($id);
-        $genres = Genres::find($id);
+        $genres = Genres::all();
         return view('pages.membres.edit', compact('membres','genres'));
     }
 
@@ -97,12 +97,14 @@ class MembresController extends Controller
             Storage::delete('public/img/', $request->img);
             Storage::put('public/img/', $request->file('img'));
             $membres->img= $request->file('img')->hashName();
-            $membres->save();
-            return redirect()->back();
+
         }
         $membres->nom = $request->nom;
         $membres->age = $request->age;
+
         $membres->genre_id= $request->genre_id;
+
+
         $membres->save();
         return redirect()->back();
     }
@@ -119,5 +121,13 @@ class MembresController extends Controller
         Storage::delete('public/img/' . $membres->img);
         // $membres->delete();
         return redirect()->back();
+    }
+
+    public function destroyall( $id)
+    {
+        $membres = Membres::find($id);
+        // Storage::delete('public/img/' . $membres->img);
+        $membres->delete();
+        return redirect('/');
     }
 }

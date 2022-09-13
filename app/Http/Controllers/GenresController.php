@@ -89,8 +89,10 @@ class GenresController extends Controller
      * @param  \App\Models\Genres  $genres
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genres $genres)
+    public function destroy($id)
     {
-        //
+        $genre = Genres::find($id);
+        $genre->delete();
+        return redirect('indexgenre');
     }
 }

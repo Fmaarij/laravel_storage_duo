@@ -18,3 +18,4 @@ class Membres extends Model
         return $this->belongsTo(Genres::class);
     }
 }
+
